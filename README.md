@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * Ian H. Pittwood
 * Diana Reyes
+* Md Merajul Islam
 
 ## Development server
 
