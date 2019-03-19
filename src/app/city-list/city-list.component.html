@@ -1,6 +1,11 @@
 <h2>City List</h2>
+<<<<<<< HEAD
 
 <div class="card" *ngFor="let city of cityDataList.list">
+=======
+<app-city-thumbnail></app-city-thumbnail>
+<div class="card" *ngFor="let city of cityData.list">
+>>>>>>> 203a3da... added city-thumbnail component
   <div class="card-body">
     <h5 class="card-title">Weather for {{city.name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Current Temperature: {{city.main.temp}} &deg;C</h6>
