@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-city-list',
-  templateUrl: './city-list.component.html',
-  styleUrls: ['./city-list.component.sass']
+  selector: 'app-city-detail',
+  templateUrl: './city-detail.component.html',
+  styleUrls: ['./city-detail.component.sass']
 })
-export class CityListComponent implements OnInit {
+export class CityDetailComponent implements OnInit {
   // TODO: This is a placeholder for the 5 city hard coded data (later on it will be replaced by the service)
   cityData = {
     list: [
@@ -26,8 +26,7 @@ export class CityListComponent implements OnInit {
     ]
   };
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }
