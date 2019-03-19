@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Weather Details for {{cityData.name}}</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <!-- TODO: Insert weather icon here -->
+      {{cityData.weather[0].main}}
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      {{cityData.main.temp}} &deg;C
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <!-- TODO: Insert forecast data -->
+    <div class="col">
+      Today's Forecast
+    </div>
+  </div>
+</div>

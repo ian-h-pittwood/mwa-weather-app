@@ -6,7 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./city-list.component.sass']
 })
 export class CityListComponent implements OnInit {
-  cityData = {
+  // TODO: This is a placeholder for the 5 city hard coded data (later on it will be replaced by the service)
+  cityDataList = {
     list: [
       {
         coord: {lon: -0.13, lat: 51.51},
