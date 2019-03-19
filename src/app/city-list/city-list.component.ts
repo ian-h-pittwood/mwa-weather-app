@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CityListComponent implements OnInit {
   // TODO: This is a placeholder for the 5 city hard coded data (later on it will be replaced by the service)
-  cityData = {
+  cityDataList = {
     list: [
       {
         coord: {lon: -0.13, lat: 51.51},
