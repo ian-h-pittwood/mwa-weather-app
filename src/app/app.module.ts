@@ -8,6 +8,16 @@ import { NavComponent } from './nav/nav.component';
 import { CityThumbnailComponent } from './city-thumbnail/city-thumbnail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CityListService } from './city-list/Shared/city-list-service';
+import {CommonModule} from "@angular/common";
+import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from "@angular/router";
+
+const appRoutes: Routes = [
+  {path: 'about-us', component: AboutUsComponent},
+  { path: 'cities', component: CityListComponent },
+  { path: 'cities/:id', component: CityDetailComponent },
+  { path: '', redirectTo: 'cities', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -19,9 +29,16 @@ import { CityListService } from './city-list/Shared/city-list-service';
     AboutUsComponent
   ],
   imports: [
-    BrowserModule
+    CommonModule,
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    )
   ],
   providers: [CityListService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
