@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CityDetailComponent implements OnInit {
   // TODO: This is a placeholder for the 5 city hard coded data (later on it will be replaced by the service)
-  @Input() cityData: any;
+  @Input() id: number;
 
   ngOnInit() {
   }
