@@ -3,5 +3,5 @@
 <h2 class="mt-2 mb-1">Weather by City</h2>
 
 <div *ngFor="let city of cityDataList.list; let even = even; let i = index">
-  <app-city-thumbnail [city]="cityDataList.list[i]"></app-city-thumbnail>
+  <app-city-thumbnail [city]="city"></app-city-thumbnail>
 </div>
