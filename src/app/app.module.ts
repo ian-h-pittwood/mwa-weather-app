@@ -6,7 +6,7 @@ import { CityListComponent } from './city-list/city-list.component';
 import { CityDetailComponent } from './city-detail/city-detail.component'
 import { NavComponent } from './nav/nav.component';
 import { CityThumbnailComponent } from './city-thumbnail/city-thumbnail.component';
-import { UsComponent } from './us/us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { UsComponent } from './us/us.component';
     NavComponent,
     CityDetailComponent,
     CityThumbnailComponent,
-    UsComponent
+    AboutUsComponent
   ],
   imports: [
     BrowserModule
