@@ -1,0 +1,9 @@
+<!-- the body of this should be similar to the inside of the ngfor loop in city-list -->
+    <div class="card-body">
+      <h5 class="card-title">Weather for {{city.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Current Temperature: {{city.main.temp}} &deg;C</h6>
+      <p class="card-text">
+        {{city.weather[0].description}}
+      </p>
+    </div>
+  

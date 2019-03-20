@@ -1,16 +1,4 @@
-<h2>City List</h2>
-
-<div class="card" *ngFor="let city of cityDataList.list">
-  <div class="card-body">
-    <h5 class="card-title">Weather for {{city.name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Current Temperature: {{city.main.temp}} &deg;C</h6>
-    <p class="card-text">
-      {{city.weather[0].description}}
-    </p>
-    <p class="card-text">
-     <!-- TODO:add if else condition while getting the weather data using service-->
-     <!-- {{city.weather[0].icon}} -->
-     <img src="../../images/weather-icon/01d.png">
-    </p>
-  </div>
-</div>
+<!--app-city-thumbnail should be taking in a value for city and 
+  printing the summary thumbnail so it needs to replace the div ngfor loop-->
+<h2>City List</h2>  
+<app-city-thumbnail *ngFor="let city of cityDataList.list" [city]="city"></app-city-thumbnail>
