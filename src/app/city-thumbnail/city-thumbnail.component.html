@@ -1,9 +1,14 @@
 <!-- the body of this should be similar to the inside of the ngfor loop in city-list -->
-    <div class="card-body">
-      <h5 class="card-title">Weather for {{city.name}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Current Temperature: {{city.main.temp}} &deg;C</h6>
-      <p class="card-text">
-        {{city.weather[0].description}}
-      </p>
-    </div>
-  
+<div class="card m-3">
+  <div class="card-body">
+    <h5 class="card-title">{{city.name}}</h5>
+    <h6 class="card-subtitle mb-2">{{city.main.temp}} &deg;C <span class="pl-3 text-muted">Hi {{city.main.temp_max}} / Lo {{city.main.temp_min}}</span>
+    </h6>
+    <p class="card-text">
+      <!-- TODO:add if else condition while getting the weather data using service-->
+      <!-- {{city.weather[0].icon}} -->
+      <img src="../../assets/images/weather-icon/{{city.weather[0].icon}}.png"> <br>
+      <small>{{city.weather[0].description | lowercase}}</small>
+    </p>
+  </div>
+</div>
