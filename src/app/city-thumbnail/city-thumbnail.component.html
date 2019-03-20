@@ -10,5 +10,8 @@
       <img src="../../assets/images/weather-icon/{{city.weather[0].icon}}.png"> <br>
       <small>{{city.weather[0].description | lowercase}}</small>
     </p>
+    <p class="card-text">
+      <a [routerLink]="['/cities', city.id]" routerLinkActive="active">Details...</a>
+    </p>
   </div>
 </div>
