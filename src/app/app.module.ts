@@ -12,11 +12,8 @@ import { CityThumbnailComponent } from './city-thumbnail/city-thumbnail.componen
     AppComponent,
     CityListComponent,
     NavComponent,
-<<<<<<< HEAD
     CityDetailComponent,
-=======
     CityThumbnailComponent
->>>>>>> 203a3da... added city-thumbnail component
   ],
   imports: [
     BrowserModule
