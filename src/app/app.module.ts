@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from "@angular/router";
 
 const appRoutes: Routes = [
+  {path: 'about-us', component: AboutUsComponent},
   { path: 'cities', component: CityListComponent },
   { path: 'cities/:id', component: CityDetailComponent },
   { path: '', redirectTo: 'cities', pathMatch: 'full' },
