@@ -7,6 +7,7 @@ import { CityDetailComponent } from './city-detail/city-detail.component'
 import { NavComponent } from './nav/nav.component';
 import { CityThumbnailComponent } from './city-thumbnail/city-thumbnail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CityListService } from './city-list/Shared/city-list-service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [CityListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
