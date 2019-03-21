@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CityListService} from "../city-list/Shared/city-list-service";
+import {CityDataService} from "../shared/city-data-service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -14,7 +14,7 @@ export class CityDetailComponent implements OnInit {
   city: any;
   cityDataList: any;
 
-  constructor(private cityListService: CityListService, private route: ActivatedRoute) {
+  constructor(private cityListService: CityDataService, private route: ActivatedRoute) {
 
   }
 
@@ -22,7 +22,7 @@ export class CityDetailComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']
     });
-    this.cityDataList = this.cityListService.getCityData();
+    this.cityDataList = this.cityListService.getCityDataById();
     for (let item of this.cityDataList.list) {
       console.log(item);
       console.log(this.id);
