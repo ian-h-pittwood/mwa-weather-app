@@ -64,4 +64,12 @@ export class CityDataService {
       .pipe(catchError(this.handleError('getCitiesInArea', [])),
         map((data: any) => data.list.map(item => new CityAdapter().adapt(item))))
   }
+
+  getCitiesById(ids_as_string: string, units: string = 'imperial'): Observable<City[]> {
+    let url = `${environment.api_address}/group?id=${ids_as_string}&units=${units}&APPID=${environment.api_key}`;
+    return this.http.get(url)
+      .pipe(catchError(this.handleError('getCityDataById', [])),
+        map((data: any) => data.list.map(item => new CityAdapter().adapt(item))))
+
+  }
 }
