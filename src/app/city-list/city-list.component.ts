@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CityDataService} from '../shared/services/city-data.service';
 import {City} from "../shared/models/city.model";
+import {Pipe, PipeTransform} from '@angular/core'
+
 
 @Component({
   selector: 'app-city-list',
@@ -12,7 +14,23 @@ export class CityListComponent implements OnInit {
   cityDataList: City[];
   defaultLat: number = 41.8818;
   defaultLon: number = -87.6231;
-
+  filteredCityList: City[];
+  
+  private _searchTerm: string;
+  
+  get searchTerm():string{
+    return this._searchTerm;
+  }
+  
+  set searchTerm(value: string){
+    this._searchTerm = value;
+    this.filteredCityList = this.filterByCity(value);
+  }
+  
+  filterByCity(searchString : string){
+    return this.cityDataList.filter(cityDataList =>cityDataList.name.toLowerCase().indexOf(searchString.toLowerCase())!== -1);
+  }
+  
   constructor(private cityListService: CityDataService) {
 
   }
@@ -39,7 +57,8 @@ export class CityListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getLocation()
+    this.getLocation();
+    this.filteredCityList = this.cityDataList;
   }
 
 }
