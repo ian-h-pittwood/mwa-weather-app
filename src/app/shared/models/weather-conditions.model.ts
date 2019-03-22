@@ -40,8 +40,10 @@ export class WeatherConditionsAdapter implements Adapter<WeatherConditions> {
       default:
         icon = '4102315 - cloud weather.png';
     }
+    let dt = new Date(0);
+    dt.setUTCSeconds(input.dt);
     return new WeatherConditions(
-      new Date(input.dt * 100),
+      dt,
       input.weather[0].main,
       input.weather[0].description,
       icon,

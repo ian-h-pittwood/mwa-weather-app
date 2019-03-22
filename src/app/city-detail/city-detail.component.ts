@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {City} from "../shared/models/city.model";
 import {Observable, Subscription} from "rxjs";
 import {CityFavoriteStorageService} from "../shared/services/city-favorite-storage.service";
+import {CityForecast} from "../shared/models/city-forecast.model";
 
 @Component({
   selector: 'app-city-detail',
@@ -14,7 +15,9 @@ export class CityDetailComponent implements OnInit {
   private id: number;
   private paramSub: Subscription;
   private cityDataSub: Subscription;
+  private cityForecastSub: Subscription;
   city: City;
+  forecast: CityForecast;
   isFavorite: boolean;
 
   constructor(private cityListService: CityDataService, private cityFavoriteService: CityFavoriteStorageService, private route: ActivatedRoute) {
@@ -28,6 +31,10 @@ export class CityDetailComponent implements OnInit {
     this.cityDataSub = this.cityListService.getCityDataById(this.id).subscribe((city: City) => {
       this.city = city;
       this.isFavorite = this.cityFavoriteService.isFavorite(this.city.id)
+    });
+    this.cityForecastSub = this.cityListService.getCityForecastById(this.id).subscribe((cityForecast: CityForecast) => {
+      console.log(cityForecast);
+      this.forecast = cityForecast;
     });
   }
 
