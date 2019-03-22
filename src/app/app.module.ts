@@ -11,7 +11,9 @@ import {CityDataService} from './shared/services/city-data.service';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {CachingInterceptor} from "./shared/services/cache.service";
+import {RequestCacheService} from "./shared/services/request-cache.service";
 
 const appRoutes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
@@ -39,7 +41,11 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [CityDataService],
+  providers: [
+    RequestCacheService,
+    CityDataService,
+    {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 
