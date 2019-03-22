@@ -58,7 +58,7 @@ export class CityListComponent implements OnInit {
 
   ngOnInit() {
     this.getLocation();
-    this.filteredCityList = this.cityDataList;
+   // this.filteredCityList = this.cityDataList;
   }
 
 }
