@@ -1,9 +1,9 @@
 <!-- the body of this should be similar to the inside of the ngfor loop in city-list -->
 <div class="card m-3">
-  <div class="card-body">
+  <div class="card-body" style="background: #f0f5f5">
     <h5 class="card-title">{{city.name}}</h5>
-    <h6 class="card-subtitle mb-2">{{city.currentConditions.temp}} &deg;F <span
-      class="pl-3 text-muted">Hi {{city.currentConditions.tempMax}} / Lo {{city.currentConditions.tempMin}}</span>
+    <h6 class="card-subtitle mb-2">{{city.currentConditions.temp | number:'1.0-0'}} &deg;F <span
+      class="pl-3 text-muted">Hi {{city.currentConditions.tempMax | number:'1.0-0'}} / Lo {{city.currentConditions.tempMin | number:'1.0-0'}}</span>
     </h6>
     <p class="card-text">
       <img src="../../assets/images/weather-flat/128/{{city.currentConditions.icon}}"><br>
