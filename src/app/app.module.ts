@@ -7,7 +7,7 @@ import { CityDetailComponent } from './city-detail/city-detail.component'
 import { NavComponent } from './nav/nav.component';
 import { CityThumbnailComponent } from './city-thumbnail/city-thumbnail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import {CityDataService} from './shared/city-data.service';
+import {CityDataService} from './shared/services/city-data.service';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from "@angular/router";

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CityDataService} from '../shared/city-data.service';
+import {CityDataService} from '../shared/services/city-data.service';
+import {City} from "../shared/models/city.model";
 
 @Component({
   selector: 'app-city-list',
@@ -8,7 +9,7 @@ import {CityDataService} from '../shared/city-data.service';
 })
 
 export class CityListComponent implements OnInit {
-  cityDataList: any;
+  cityDataList: City[];
   defaultLat: number = 41.8818;
   defaultLon: number = -87.6231;
 
@@ -18,8 +19,8 @@ export class CityListComponent implements OnInit {
 
   apiCall(lat: number = this.defaultLat, lon: number = this.defaultLon) {
     this.cityListService.getCitiesInArea(lat, lon, 12).subscribe(
-      (cityDataList: any) => {
-        this.cityDataList = cityDataList
+      (cityDataList: City[]) => {
+        this.cityDataList = cityDataList;
       }
     );
   }
