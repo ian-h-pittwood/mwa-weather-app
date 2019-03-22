@@ -6,8 +6,8 @@ import {Pipe, PipeTransform} from '@angular/core'
 
 @Component({
   selector: 'app-city-list',
-  templateUrl: './city-list.component.html',
-  styleUrls: ['./city-list.component.sass']
+  templateUrl: './city-list.component.html'
+ 
 })
 
 export class CityListComponent implements OnInit {

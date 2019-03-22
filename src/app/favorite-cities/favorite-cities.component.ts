@@ -5,8 +5,7 @@ import {isObject} from "util";
 
 @Component({
   selector: 'app-favorite-cities',
-  templateUrl: './favorite-cities.component.html',
-  styleUrls: ['./favorite-cities.component.sass']
+  templateUrl: './favorite-cities.component.html'
 })
 export class FavoriteCitiesComponent implements OnInit {
   cityDataList: City[];
