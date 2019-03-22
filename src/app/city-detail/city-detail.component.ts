@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CityDataService} from "../shared/city-data.service";
+import {CityDataService} from "../shared/services/city-data.service";
 import {ActivatedRoute} from "@angular/router";
+import {City} from "../shared/models/city.model";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-city-detail',
@@ -9,9 +11,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CityDetailComponent implements OnInit {
   private id: number;
-  private paramSub: any;
-  private cityDataSub: any;
-  city: any;
+  private paramSub: Subscription;
+  private cityDataSub: Subscription;
+  city: City;
 
   constructor(private cityListService: CityDataService, private route: ActivatedRoute) {
 
@@ -21,7 +23,7 @@ export class CityDetailComponent implements OnInit {
     this.paramSub = this.route.params.subscribe(params => {
       this.id = +params['id']
     });
-    this.cityDataSub = this.cityListService.getCityDataById(this.id).subscribe((city: any) => {
+    this.cityDataSub = this.cityListService.getCityDataById(this.id).subscribe((city: City) => {
       this.city = city
     })
 

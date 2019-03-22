@@ -2,47 +2,15 @@
 <div class="card m-3">
   <div class="card-body">
     <h5 class="card-title">{{city.name}}</h5>
-    <h6 class="card-subtitle mb-2">{{city.main.temp}} &deg;F <span class="pl-3 text-muted">Hi {{city.main.temp_max}} / Lo {{city.main.temp_min}}</span>
+    <h6 class="card-subtitle mb-2">{{city.currentConditions.temp}} &deg;F <span
+      class="pl-3 text-muted">Hi {{city.currentConditions.tempMax}} / Lo {{city.currentConditions.tempMin}}</span>
     </h6>
-    <div class="card-text">
-      <!-- TODO:add if else condition while getting the weather data using service-->
-      <!-- {{city.weather[0].icon}} -->
-      <div [ngSwitch]="city.weather[0].icon">
-        <div *ngSwitchCase="'04d'">
-          <img src="../../assets/images/weather-icon/broken_clouds.png"><br>
-        </div>
-        <div *ngSwitchCase="'01d'|| '01n'">
-          <img src="../../assets/images/weather-icon/clear_sky.png"><br>
-        </div>
-        <div *ngSwitchCase="'02d' || '02n'">
-          <img src="../../assets/images/weather-icon/few_clouds.png"><br>
-        </div>
-        <div *ngSwitchCase="'50d'">
-          <img src="../../assets/images/weather-icon/mist.png"><br>
-        </div>
-        <div *ngSwitchCase="'10d'">
-          <img src="../../assets/images/weather-icon/rain.png"><br>
-        </div>
-        <div *ngSwitchCase="'03d'">
-          <img src="../../assets/images/weather-icon/scatter_clouds.png"><br>
-        </div>
-        <div *ngSwitchCase="'09d'">
-          <img src="../../assets/images/weather-icon/shower_rain.png"><br>
-        </div>
-        <div *ngSwitchCase="'13d'">
-          <img src="../../assets/images/weather-icon/snow.png"><br>
-        </div>
-        <div *ngSwitchCase="'11d'">
-          <img src="../../assets/images/weather-icon/thunderstorm.png"><br>
-        </div>
-        <div *ngSwitchDefault>
-          <img src=""><br>
-        </div>
-      </div>  
-      
-      <small>{{city.weather[0].description | lowercase}}</small>
-    </div>
     <p class="card-text">
+      <img src="../../assets/images/weather-flat/128/{{city.currentConditions.icon}}"><br>
+
+      <small class="text-muted">{{city.currentConditions.longDescription | lowercase}}</small>
+      <br>
+
       <a [routerLink]="['/cities', city.id]" routerLinkActive="active">Details...</a>
     </p>
   </div>
