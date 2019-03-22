@@ -2,15 +2,15 @@
 <div class="card m-3">
   <div class="card-body" style="background: #f0f5f5">
     <h5 class="card-title">{{city.name}}</h5>
-    <h6 class="card-subtitle mb-2">{{city.main.temp | number:'1.0-0'}} &deg;F <span class="pl-3 text-muted">Hi {{city.main.temp_max | number:'1.0-0' }} / Lo {{city.main.temp_min | number:'1.0-0'}}</span>
+    <h6 class="card-subtitle mb-2">{{city.currentConditions.temp | number:'1.0-0'}} &deg;F <span
+      class="pl-3 text-muted">Hi {{city.currentConditions.tempMax | number:'1.0-0'}} / Lo {{city.currentConditions.tempMin | number:'1.0-0'}}</span>
     </h6>
     <p class="card-text">
-      <!-- TODO:add if else condition while getting the weather data using service-->
-      <!-- {{city.weather[0].icon}} -->
-      <img src="../../assets/images/weather-icon/{{city.weather[0].icon}}.png"> <br>
-      <small>{{city.weather[0].description | lowercase}}</small>
-    </p>
-    <p class="card-text">
+      <img src="../../assets/images/weather-flat/128/{{city.currentConditions.icon}}"><br>
+
+      <small class="text-muted">{{city.currentConditions.longDescription | lowercase}}</small>
+      <br>
+
       <a [routerLink]="['/cities', city.id]" routerLinkActive="active">Details...</a>
     </p>
   </div>

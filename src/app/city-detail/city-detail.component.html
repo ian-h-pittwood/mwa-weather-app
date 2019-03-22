@@ -7,12 +7,12 @@
   <div class="row justify-content-center">
     <div class="col">
       <!-- TODO: Insert weather icon here -->
-      {{city.weather[0].main}}
+      {{city.currentConditions.shortDescription}}
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col">
-      {{city.main.temp}} &deg;C
+      {{city.currentConditions.temp}} &deg;F
     </div>
   </div>
   <div class="row justify-content-center">

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  api_address: 'https://api.openweathermap.org/data/2.5',
   api_key: 'c019f099fba2700671347b4c408a6571'
 };
 
