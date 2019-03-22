@@ -1,0 +1,6 @@
+<h2 class="mt-2 mb-1">Favorite Cities</h2>
+
+<h3 *ngIf="!hasFavorites">You don't have any favorites stored...</h3>
+<div *ngFor="let city of cityDataList; let even = even; let i = index">
+  <app-city-thumbnail [city]="city"></app-city-thumbnail>
+</div>

@@ -12,10 +12,13 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {FavoriteCitiesComponent} from './favorite-cities/favorite-cities.component';
+import {CityFavoriteStorageService} from "./shared/services/city-favorite-storage.service";
 
 const appRoutes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   { path: 'cities', component: CityListComponent },
+  {path: 'cities/favorites', component: FavoriteCitiesComponent},
   { path: 'cities/:id', component: CityDetailComponent },
   { path: '', redirectTo: 'cities', pathMatch: 'full' },
 ];
@@ -27,7 +30,8 @@ const appRoutes: Routes = [
     NavComponent,
     CityDetailComponent,
     CityThumbnailComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FavoriteCitiesComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,10 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [CityDataService],
+  providers: [
+    CityDataService,
+    CityFavoriteStorageService
+  ],
   bootstrap: [AppComponent]
 })
 
