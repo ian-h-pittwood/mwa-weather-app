@@ -1,4 +1,7 @@
 <div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Weather Details for {{city.name}}</h1>
+  </div>
   <div class="buttonmenu">
     <button class="btn" (click)="callAddFavorite()" *ngIf="!isFavorite">
       Favorite
@@ -9,26 +12,56 @@
       <i class="fas fa-heart"></i>
     </button>
   </div>
-  <div class="container">
-    <h1 class="display-4">Weather Details for {{city.name}}</h1>
-  </div>
 </div>
 <div class="container">
+  <h2 class="m-3">Current Conditions</h2>
   <div class="row justify-content-center">
-    <div class="col">
-      <!-- TODO: Insert weather icon here -->
-      {{city.currentConditions.shortDescription}}
+    <div class="col" align="center">
+      <img src="../../assets/images/weather-flat/256/{{city.currentConditions.icon}}">
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col">
-      {{city.currentConditions.temp}} &deg;F
+    <div class="col" align="center">
+      <h4 class="mb-2">{{city.currentConditions.temp | number:'1.0-0'}} &deg;F <span
+        class="pl-3 text-muted">Hi {{city.currentConditions.tempMax | number:'1.0-0'}}
+        / Lo {{city.currentConditions.tempMin | number:'1.0-0'}}</span>
+      </h4>
     </div>
   </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col" align="center"></div>
+    <div class="col" align="center">
+      Pressure: {{city.currentConditions.pressure}}hPa
+    </div>
+    <div class="col" align="center">
+      Humidity: {{city.currentConditions.humidity}}%
+    </div>
+    <div class="col" align="center"></div>
+  </div>
   <div class="row justify-content-center">
-    <!-- TODO: Insert forecast data -->
-    <div class="col">
-      Today's Forecast
+    <div class="col" align="center"></div>
+    <div class="col" align="center">
+      Wind Speed: {{city.currentConditions.windSpeed}}mph
+    </div>
+    <div class="col" align="center">
+      Wind Direction: {{city.currentConditions.windDir}}&deg;
+    </div>
+    <div class="col" align="center"></div>
+  </div>
+  <h3 class="m-3">5-Day Forecast</h3>
+  <div class="row justify-content-center">
+    <div class="col" *ngFor="let conditions of forecast.futureConditions">
+      <div class="card m-2">
+        <div class="card-body">
+          <h5 class="card-title">{{conditions.dt.getMonth() + 1}}/{{conditions.dt.getDate()}}</h5>
+          <img src="../../assets/images/weather-flat/128/{{conditions.icon}}"><br>
+          <h6 class="card-subtitle mb-2">{{city.currentConditions.temp | number:'1.0-0'}} &deg;F <span
+            class="pl-3 text-muted">Hi {{city.currentConditions.tempMax | number:'1.0-0'}}
+            / Lo {{city.currentConditions.tempMin | number:'1.0-0'}}</span>
+          </h6>
+          <small class="text-muted">{{city.currentConditions.longDescription | lowercase}}</small>
+        </div>
+      </div>
     </div>
   </div>
 </div>

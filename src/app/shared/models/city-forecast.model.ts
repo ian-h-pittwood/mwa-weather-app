@@ -3,11 +3,9 @@ import {WeatherConditions, WeatherConditionsAdapter} from "./weather-conditions.
 import {Adapter} from "../../core/adapter";
 
 export class CityForecast {
-  city: City;
-
   constructor(
-    city_id: number,
-    futureConditions: WeatherConditions[]
+    public city_id: number,
+    public futureConditions: WeatherConditions[]
   ) {
   }
 }
@@ -16,13 +14,20 @@ export class CityForecastAdapter implements Adapter<CityForecast> {
   adapt(input: any): CityForecast {
     let weatherConditionsAdapter = new WeatherConditionsAdapter();
     let conditionsArray: WeatherConditions[] = [];
+    let counter = 0;
     for (let item of input.list) {
-      let conditions = weatherConditionsAdapter.adapt(item);
-      conditionsArray.push(conditions)
+      if (counter % 8 === 0) {
+        let conditions = weatherConditionsAdapter.adapt(item);
+        conditionsArray.push(conditions);
+      }
+      counter++;
     }
-    return new CityForecast(
+    console.log(conditionsArray);
+    let cityForecast = new CityForecast(
       input.city.id,
       conditionsArray
-    )
+    );
+    console.log(cityForecast);
+    return cityForecast
   }
 }
